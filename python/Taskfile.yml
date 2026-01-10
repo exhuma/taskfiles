@@ -1,0 +1,47 @@
+version: '3'
+
+# Python-related tasks
+# Include this file in your project with:
+#   includes:
+#     py: ./path/to/python/Taskfile.yml
+# Or use remote include:
+#   includes:
+#     py:
+#       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/python/Taskfile.yml
+
+tasks:
+  install:
+    desc: Install Python dependencies
+    cmds:
+      - pip install -r requirements.txt
+
+  install-dev:
+    desc: Install Python development dependencies
+    cmds:
+      - pip install -r requirements-dev.txt
+
+  test:
+    desc: Run Python tests
+    cmds:
+      - pytest
+
+  lint:
+    desc: Run Python linters
+    cmds:
+      - flake8 .
+      - pylint **/*.py
+
+  format:
+    desc: Format Python code
+    cmds:
+      - black .
+      - isort .
+
+  clean:
+    desc: Clean Python artifacts
+    cmds:
+      - find . -type d -name __pycache__ -exec rm -rf {} +
+      - find . -type f -name "*.pyc" -delete
+      - find . -type d -name "*.egg-info" -exec rm -rf {} +
+      - rm -rf .pytest_cache
+      - rm -rf dist build

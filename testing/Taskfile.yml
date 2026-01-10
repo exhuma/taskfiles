@@ -1,0 +1,43 @@
+version: '3'
+
+# Testing-related tasks
+# Include this file in your project with:
+#   includes:
+#     test: ./path/to/testing/Taskfile.yml
+# Or use remote include:
+#   includes:
+#     test:
+#       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/testing/Taskfile.yml
+
+tasks:
+  unit:
+    desc: Run unit tests
+    cmds:
+      - echo "Run your unit test command here"
+
+  integration:
+    desc: Run integration tests
+    cmds:
+      - echo "Run your integration test command here"
+
+  e2e:
+    desc: Run end-to-end tests
+    cmds:
+      - echo "Run your e2e test command here"
+
+  coverage:
+    desc: Generate test coverage report
+    cmds:
+      - echo "Run your coverage command here"
+
+  watch:
+    desc: Run tests in watch mode
+    cmds:
+      - echo "Run your test watch command here"
+
+  all:
+    desc: Run all tests
+    cmds:
+      - task: unit
+      - task: integration
+      - task: e2e

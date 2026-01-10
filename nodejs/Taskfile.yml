@@ -1,0 +1,51 @@
+version: '3'
+
+# Node.js-related tasks
+# Include this file in your project with:
+#   includes:
+#     node: ./path/to/nodejs/Taskfile.yml
+# Or use remote include:
+#   includes:
+#     node:
+#       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/nodejs/Taskfile.yml
+
+tasks:
+  install:
+    desc: Install Node.js dependencies
+    cmds:
+      - npm install
+
+  build:
+    desc: Build Node.js project
+    cmds:
+      - npm run build
+
+  dev:
+    desc: Run development server
+    cmds:
+      - npm run dev
+
+  test:
+    desc: Run tests
+    cmds:
+      - npm test
+
+  lint:
+    desc: Run linters
+    cmds:
+      - npm run lint
+
+  format:
+    desc: Format code
+    cmds:
+      - npm run format
+
+  clean:
+    desc: Clean build artifacts and dependencies
+    cmds:
+      - rm -rf node_modules dist build .next
+
+  audit:
+    desc: Audit dependencies for security vulnerabilities
+    cmds:
+      - npm audit

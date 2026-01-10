@@ -1,0 +1,46 @@
+version: '3'
+
+# Git-related tasks
+# Include this file in your project with:
+#   includes:
+#     git: ./path/to/git/Taskfile.yml
+# Or use remote include:
+#   includes:
+#     git:
+#       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/git/Taskfile.yml
+
+tasks:
+  status:
+    desc: Show git status
+    cmds:
+      - git status
+
+  branch:
+    desc: Show current branch
+    cmds:
+      - git branch --show-current
+
+  pull:
+    desc: Pull latest changes
+    cmds:
+      - git pull --rebase
+
+  clean:
+    desc: Clean untracked files (dry-run)
+    cmds:
+      - git clean -n -d
+
+  clean-force:
+    desc: Clean untracked files (DESTRUCTIVE)
+    cmds:
+      - git clean -f -d
+
+  tags:
+    desc: List all tags
+    cmds:
+      - git tag -l
+
+  branches:
+    desc: List all branches
+    cmds:
+      - git branch -a
