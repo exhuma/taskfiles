@@ -10,32 +10,6 @@ version: '3'
 #       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/python/Taskfile.yml
 
 tasks:
-  install:
-    desc: Install Python dependencies
-    cmds:
-      - pip install -r requirements.txt
-
-  install-dev:
-    desc: Install Python development dependencies
-    cmds:
-      - pip install -r requirements-dev.txt
-
-  test:
-    desc: Run Python tests
-    cmds:
-      - pytest
-
-  lint:
-    desc: Run Python linters
-    cmds:
-      - flake8 .
-      - pylint **/*.py
-
-  format:
-    desc: Format Python code
-    cmds:
-      - black .
-      - isort .
 
   clean:
     desc: Clean Python artifacts
