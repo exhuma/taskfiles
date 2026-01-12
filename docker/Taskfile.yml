@@ -1,0 +1,21 @@
+version: '3'
+
+# Docker-related tasks
+# Include this file in your project with:
+#   includes:
+#     docker: ./path/to/docker/Taskfile.yml
+# Or use remote include:
+#   includes:
+#     docker:
+#       taskfile: https://raw.githubusercontent.com/exhuma/taskfiles/main/docker/Taskfile.yml
+
+tasks:
+  build:
+    desc: Build Docker image
+    cmds:
+      - docker build -t {{.IMAGE_NAME | default "myapp"}}:{{.IMAGE_TAG | default "latest"}} .
+
+  run:
+    desc: Run Docker container
+    cmds:
+      - docker run -it --rm {{.IMAGE_NAME | default "myapp"}}:{{.IMAGE_TAG | default "latest"}}
